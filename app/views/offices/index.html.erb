@@ -5,6 +5,9 @@
   <%= submit_tag("Search") %>
 <% end %>
 
+<% if @local_authority.present? %>
+  <p>The local authority for <%= params[:search].upcase %> is <%= @local_authority.name %>.</p>
+<% end %>
 
 <% if @offices.present? %>
   <ul>
