@@ -1,0 +1,18 @@
+<h1>Search for your local Citizens Advice</h1>
+
+<%= form_tag(offices_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+<% if @offices.present? %>
+  <ul>
+    <% @offices.each do |office| %>
+      <li>
+        <%= link_to(office.name, office_path(office.id)) %>
+        <%= (office.distance_in_meters / 1609.34).round(2) %> miles
+      </li>
+    <% end %>
+  </ul>
+<% end %>
