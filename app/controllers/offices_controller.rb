@@ -3,7 +3,9 @@ class OfficesController < ApplicationController
   def index
 
     query = params["search"]
-    url = URI("http://localhost:3001/internal_postgres_search/#{query}")
+    query_params = params.permit("limit", "eligible_only").to_h.to_query
+
+    url = URI("http://localhost:3001/internal_postgres_search/#{query}?#{query_params}")
     res = Net::HTTP.get(url)
 
     @offices = JSON.parse(res, object_class: OpenStruct) || []
