@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app depends on [the API prototype](https://github.com/dxw/find-your-local-citizens-advice-api-prototype) to be running locally on port 3001.
 
-Things you may want to cover:
+As a prototype this is designed to be thrown away rather than used in production.
 
-* Ruby version
+## Get started
 
-* System dependencies
+```
+bundle
+bin/rails s
+```
 
-* Configuration
+## Use it
 
-* Database creation
+<http://localhost:3000/offices>
 
-* Database initialization
+There are a couple of query params that help demonstrate different search behaviour:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+?limit=5
+?eligible_only=true|false
+```
