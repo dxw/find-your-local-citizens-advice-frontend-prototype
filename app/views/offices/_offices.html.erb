@@ -1,0 +1,7 @@
+<ul class="list-group">
+  <% offices.each do |office| %>
+    <li class="list-group-item">
+      <%= render partial: 'office', locals: { office: office } %>
+    </li>
+  <% end %>
+</ul>

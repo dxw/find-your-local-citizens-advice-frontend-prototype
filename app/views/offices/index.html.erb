@@ -1,7 +1,6 @@
 <div class="row">
   <h1>Search for your local Citizens Advice</h1>
 </div>
-
 <div class="row">
   <div class="col-3">
     <%= form_tag(offices_path, method: :get) do %>
@@ -21,18 +20,22 @@
   <% end %>
 </div>
 
-
 <% if @offices.present? %>
-  <ul class="list-group">
-    <% @offices.each do |office| %>
-      <li class="list-group-item">
-        <%= link_to(office.name, office_path(office.id)) %>
-        <% if office.distance_in_meters.present? %>
-          <%= (office.distance_in_meters / 1609.34).round(2) %> miles
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% elsif params[:search].present? %>
+  <h2>Offices</h2>
+  <p>We can't determine your location. These offices may be ineligible to you, please use a postcode to check eligiblity.</p>
+  <%= render partial: 'offices', locals: { offices: @offices } %>
+<% end %>
+
+<% if @eligible_offices.present? %>
+  <h2>Eligible offices</h2>
+  <%= render partial: 'offices', locals: { offices: @eligible_offices } %>
+<% end %>
+
+<% if @ineligible_offices.present? %>
+  <h2>Ineligible offices</h2>
+  <%= render partial: 'offices', locals: { offices: @ineligible_offices } %>
+<% end %>
+
+<% if params[:search].present? && !@offices.present? && !@eligible_offices.present? && !@ineligible_offices.present? %>
   <p>No results, please try using a UK postcode.</p>
 <% end %>

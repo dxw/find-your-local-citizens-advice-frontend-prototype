@@ -1,0 +1,4 @@
+<%= link_to(office.name, office_path(office.id)) %>
+<% if office.distance_in_meters.present? %>
+  <%= (office.distance_in_meters / 1609.34).round(2) %> miles
+<% end %>
