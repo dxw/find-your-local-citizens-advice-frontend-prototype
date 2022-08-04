@@ -2,7 +2,7 @@ require 'net/http'
 class OfficesController < ApplicationController
   def index
     query = params["search"]
-    query_params = params.permit("limit", "eligible_only").to_h.to_query
+    query_params = params.permit("limit", "eligible_only", "within").to_h.to_query
 
     if query.present?
       url = URI("http://localhost:3001/internal_postgres_search/#{query}?#{query_params}")
