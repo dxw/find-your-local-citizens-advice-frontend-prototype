@@ -1,0 +1,11 @@
+<h2>Access details </h2>
+
+<% if office_presenter.access_details %>
+  <ul>
+    <% office_presenter.access_details.each do |access_detail| %>
+      <li><%= access_detail %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>We don't have the data for this yet.</p>
+<% end %>

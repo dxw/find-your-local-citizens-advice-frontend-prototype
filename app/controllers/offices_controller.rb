@@ -30,6 +30,6 @@ class OfficesController < ApplicationController
 
     data = JSON.parse(res, object_class: OpenStruct)
 
-    @office = data.office
+    @office_presenter = OfficePresenter.new(data.office)
   end
 end

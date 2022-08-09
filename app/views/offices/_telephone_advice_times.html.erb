@@ -1,0 +1,13 @@
+<h2>Telephone advice times</h2>
+<ul class="list-group">
+  <% office_presenter.telephone_advice_times.each_pair do |weekday, opening_times| %>
+    <li class="list-group-item">
+      <%= weekday %>
+      <% opening_times.each do |opening_time| %>
+        <span class="badge rounded-pill bg-info text-dark">
+          <%= opening_time.start_time %> - <%= opening_time.end_time %>
+        </span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
