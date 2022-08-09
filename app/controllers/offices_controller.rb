@@ -25,6 +25,8 @@ class OfficesController < ApplicationController
     url = URI("http://localhost:3001/offices/#{query}")
     res = Net::HTTP.get(url)
 
-    @office = JSON.parse(res, object_class: OpenStruct) || []
+    data = JSON.parse(res, object_class: OpenStruct)
+
+    @office = data.office
   end
 end

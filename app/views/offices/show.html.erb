@@ -30,10 +30,32 @@
 <p><%= @office.about_our_advice_service__c || "We don't have the data for this yet" %></p>
 
 <h2>Advice session times</h2>
-<p>We don't have the data for this yet</p>
+<ul class="list-group">
+  <% @office.office_opening_times.group_by(&:weekday).each_pair do |weekday, opening_times| %>
+    <li class="list-group-item">
+      <%= weekday %>
+      <% opening_times.each do |opening_time| %>
+        <span class="badge rounded-pill bg-info text-dark">
+          <%= opening_time.start_time %> - <%= opening_time.end_time %>
+        </span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
 
 <h2>Telephone advice times</h2>
-<p>We don't have the data for this yet</p>
+<ul class="list-group">
+  <% @office.telephone_advice_times.group_by(&:weekday).each_pair do |weekday, opening_times| %>
+    <li class="list-group-item">
+      <%= weekday %>
+      <% opening_times.each do |opening_time| %>
+        <span class="badge rounded-pill bg-info text-dark">
+          <%= opening_time.start_time %> - <%= opening_time.end_time %>
+        </span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
 
 <h2>Access details </h2>
 <p><%= @office.access_details__c || "We don't have the data for this yet" %></p>
