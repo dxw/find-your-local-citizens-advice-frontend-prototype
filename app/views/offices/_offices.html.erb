@@ -1,7 +1,7 @@
 <ul class="list-group">
   <% offices.each do |office| %>
     <li class="list-group-item">
-      <%= render partial: 'office', locals: { office: office } %>
+      <%= render partial: 'office_link', locals: { office: office } %>
     </li>
   <% end %>
 </ul>
