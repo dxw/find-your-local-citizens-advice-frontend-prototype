@@ -58,4 +58,8 @@
 </ul>
 
 <h2>Access details </h2>
-<p><%= @office.access_details__c || "We don't have the data for this yet" %></p>
+<ul>
+  <% @office.access_details__c.split(";").each do |access_detail| %>
+    <li><%= access_detail %></li>
+  <% end %>
+</ul>
