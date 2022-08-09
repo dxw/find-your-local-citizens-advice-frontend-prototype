@@ -9,8 +9,6 @@ class OfficesController < ApplicationController
       res = Net::HTTP.get(url)
       result_objects = JSON.parse(res, object_class: OpenStruct)
 
-      @local_authority = result_objects.results.local_authority
-
       offices_by_eligibility = result_objects.results.offices.group_by(&:eligible)
 
       @offices = offices_by_eligibility[nil]
