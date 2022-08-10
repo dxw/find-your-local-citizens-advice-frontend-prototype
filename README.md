@@ -1,3 +1,5 @@
+[Moved to the Citizens Advice organisation.](https://github.com/citizensadvice/find-your-local-citizens-advice-frontend-prototype)
+
 # README
 
 This app depends on [the API prototype](https://github.com/dxw/find-your-local-citizens-advice-api-prototype) to be running locally on port 3001.
